@@ -1,7 +1,3 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "app/dist",
-  "installCommand": "cd app && npm install",
-  "framework": "vite",
   "rootDirectory": "app"
 }
