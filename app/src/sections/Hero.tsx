@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+﻿import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -67,7 +67,7 @@ export default function Hero() {
         style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(180deg, #240046 0%, #9D446E 100%)',
+          background: 'linear-gradient(180deg, #C2185B 0%, #9D446E 100%)',
           opacity: 0,
           zIndex: 2,
           pointerEvents: 'none',

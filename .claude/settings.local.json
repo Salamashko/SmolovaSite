@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "PowerShell(gh repo create SmolovaSite --private --source=\"D:\\\\test claude\" --remote=origin --push 2>&1)"
+      "PowerShell(gh repo create SmolovaSite --private --source=\"D:\\\\test claude\" --remote=origin --push 2>&1)",
+      "PowerShell($env:PATH = \"C:\\\\Program Files\\\\nodejs;\" + $env:PATH; Set-Location \"D:\\\\test claude\\\\app\"; & \"C:\\\\Program Files\\\\nodejs\\\\npm.cmd\" run dev)",
+      "PowerShell($bytes = [System.IO.File]::ReadAllBytes\\(\"D:\\\\test claude\\\\app\\\\src\\\\sections\\\\Hero.tsx\"\\); $bytes[500..520] | ForEach-Object { \"{0:X2}\" -f $_ })",
+      "PowerShell($content = Get-Content \"D:\\\\test claude\\\\app\\\\src\\\\sections\\\\Hero.tsx\" -Raw -Encoding UTF8; $idx = $content.IndexOf\\(\"title\"\\); $content.Substring\\($idx, 100\\))"
     ]
   }
 }

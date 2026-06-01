@@ -1,4 +1,4 @@
-import AkashicSphere from './AkashicSphere';
+﻿import AkashicSphere from './AkashicSphere';
 
 export default function Invitation() {
   return (
@@ -7,7 +7,7 @@ export default function Invitation() {
       style={{
         position: 'relative',
         zIndex: 10,
-        background: '#240046',
+        background: '#C2185B',
         padding: 'clamp(80px, 10vw, 120px) clamp(24px, 8vw, 120px)',
       }}
     >

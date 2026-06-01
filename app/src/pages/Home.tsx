@@ -1,4 +1,4 @@
-import RadianceField from '../sections/RadianceField';
+﻿import RadianceField from '../sections/RadianceField';
 import Hero from '../sections/Hero';
 import Invitation from '../sections/Invitation';
 import Transformation from '../sections/Transformation';
@@ -19,7 +19,7 @@ export default function Home() {
         <div
           style={{
             height: '200px',
-            background: 'linear-gradient(180deg, transparent 0%, #240046 100%)',
+            background: 'linear-gradient(180deg, transparent 0%, #C2185B 100%)',
             position: 'relative',
             zIndex: 5,
             marginTop: '-200px',

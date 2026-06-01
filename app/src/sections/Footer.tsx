@@ -1,11 +1,11 @@
-export default function Footer() {
+﻿export default function Footer() {
   return (
     <footer
       id="footer"
       style={{
         position: 'relative',
         zIndex: 10,
-        background: '#240046',
+        background: '#C2185B',
         padding: 'clamp(80px, 10vw, 120px) clamp(24px, 8vw, 120px)',
       }}
     >

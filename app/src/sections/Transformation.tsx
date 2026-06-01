@@ -1,4 +1,4 @@
-import KineticCylinder from './KineticCylinder';
+﻿import KineticCylinder from './KineticCylinder';
 
 export default function Transformation() {
   return (
@@ -18,7 +18,7 @@ export default function Transformation() {
             fontSize: 'clamp(36px, 4vw, 64px)',
             fontWeight: 400,
             lineHeight: 1.1,
-            color: '#240046',
+            color: '#C2185B',
             marginBottom: '40px',
           }}
         >
@@ -57,7 +57,7 @@ export default function Transformation() {
                     fontFamily: 'Inter, sans-serif',
                     fontSize: '16px',
                     lineHeight: 1.8,
-                    color: '#240046',
+                    color: '#C2185B',
                     opacity: 0.7,
                   }}
                 >
@@ -88,7 +88,7 @@ export default function Transformation() {
                     fontFamily: 'Inter, sans-serif',
                     fontSize: '16px',
                     lineHeight: 1.8,
-                    color: '#240046',
+                    color: '#C2185B',
                   }}
                 >
                   — {item}
@@ -103,7 +103,7 @@ export default function Transformation() {
             fontFamily: 'Inter, sans-serif',
             fontSize: '18px',
             lineHeight: 1.6,
-            color: '#240046',
+            color: '#C2185B',
             opacity: 0.8,
             maxWidth: '640px',
             margin: '0 auto 60px',

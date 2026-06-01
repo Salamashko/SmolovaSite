@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+﻿import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -125,7 +125,7 @@ export default function Services() {
             fontSize: 'clamp(36px, 4vw, 64px)',
             fontWeight: 400,
             lineHeight: 1.1,
-            color: '#240046',
+            color: '#C2185B',
             textAlign: 'center',
             marginBottom: '16px',
           }}
@@ -137,7 +137,7 @@ export default function Services() {
             fontFamily: 'Inter, sans-serif',
             fontSize: '18px',
             lineHeight: 1.6,
-            color: '#240046',
+            color: '#C2185B',
             opacity: 0.6,
             textAlign: 'center',
             marginBottom: '60px',
@@ -190,7 +190,7 @@ export default function Services() {
                     fontSize: '24px',
                     fontWeight: 500,
                     lineHeight: 1.2,
-                    color: '#240046',
+                    color: '#C2185B',
                     marginBottom: '12px',
                   }}
                 >
@@ -201,7 +201,7 @@ export default function Services() {
                     fontFamily: 'Inter, sans-serif',
                     fontSize: '15px',
                     lineHeight: 1.6,
-                    color: '#240046',
+                    color: '#C2185B',
                     opacity: 0.7,
                     marginBottom: '24px',
                   }}
@@ -223,7 +223,7 @@ export default function Services() {
                     fontFamily: 'Inter, sans-serif',
                     fontSize: '16px',
                     fontWeight: 700,
-                    color: '#240046',
+                    color: '#C2185B',
                   }}
                 >
                   {service.price}

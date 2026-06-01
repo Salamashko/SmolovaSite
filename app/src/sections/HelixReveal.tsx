@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+﻿import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -72,7 +72,7 @@ export default function HelixReveal({ text }: HelixRevealProps) {
           fontFamily: '"Cormorant Garamond", serif',
           fontSize: 'clamp(24px, 3vw, 36px)',
           lineHeight: 1.4,
-          color: '#240046',
+          color: '#C2185B',
           maxWidth: '800px',
           margin: '0 auto',
         }}
