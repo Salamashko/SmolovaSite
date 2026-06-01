@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(gh repo create SmolovaSite --private --source=\"D:\\\\test claude\" --remote=origin --push 2>&1)"
+    ]
+  }
+}

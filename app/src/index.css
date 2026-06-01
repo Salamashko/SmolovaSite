@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 270 100% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 270 100% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 270 100% 14%;
+    --primary: 270 100% 14%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 16 71% 88%;
+    --secondary-foreground: 270 100% 14%;
+    --muted: 16 71% 88%;
+    --muted-foreground: 270 100% 14%;
+    --accent: 194 100% 37%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 300 30% 88%;
+    --input: 300 30% 88%;
+    --ring: 270 100% 14%;
+    --radius: 0.625rem;
+    --cylinder-radius: 200px;
+    --cylinder-angle: 0deg;
+    --cylinder-spin-speed: 24s;
+    --cylinder-font-size: 40px;
+    --cylinder-perspective: 900px;
+    --cylinder-width: 100%;
+    --cylinder-height: 400px;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@layer components {
+  .cylinder-wrapper {
+    position: relative;
+    width: var(--cylinder-width);
+    height: var(--cylinder-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: var(--cylinder-perspective);
+    overflow: hidden;
+    background: transparent;
+  }
+
+  .cylinder-stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform-origin: center center;
+  }
+
+  .cylinder-auto-spin {
+    animation: CylinderSpin var(--cylinder-spin-speed) linear infinite;
+  }
+
+  .cylinder-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: var(--cylinder-font-size);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    color: #240046;
+    backface-visibility: visible;
+    will-change: transform;
+  }
+
+  .cylinder-text span {
+    display: inline-block;
+    transform: scaleX(-1);
+  }
+}
+
+@keyframes CylinderSpin {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(-360deg);
+  }
+}
