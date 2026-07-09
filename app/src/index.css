@@ -4,33 +4,27 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 333 74% 38%;
-    --card: 0 0% 100%;
-    --card-foreground: 333 74% 38%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 333 74% 38%;
-    --primary: 333 74% 38%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 16 71% 88%;
-    --secondary-foreground: 333 74% 38%;
-    --muted: 16 71% 88%;
-    --muted-foreground: 333 74% 38%;
-    --accent: 194 100% 37%;
-    --accent-foreground: 0 0% 100%;
+    /* shadcn tokens поверх тёмной темы «Тёмная сакральная ясность» */
+    --background: 240 24% 3%;
+    --foreground: 33 35% 87%;
+    --card: 226 17% 13%;
+    --card-foreground: 33 35% 87%;
+    --popover: 226 17% 13%;
+    --popover-foreground: 33 35% 87%;
+    --primary: 223 68% 66%;
+    --primary-foreground: 240 24% 3%;
+    --secondary: 226 17% 13%;
+    --secondary-foreground: 33 35% 87%;
+    --muted: 226 17% 13%;
+    --muted-foreground: 300 3% 64%;
+    --accent: 223 68% 66%;
+    --accent-foreground: 240 24% 3%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 300 30% 88%;
-    --input: 300 30% 88%;
-    --ring: 333 74% 38%;
+    --border: 33 20% 87% / 0.12;
+    --input: 33 20% 87% / 0.16;
+    --ring: 223 68% 66%;
     --radius: 0.625rem;
-    --cylinder-radius: 200px;
-    --cylinder-angle: 0deg;
-    --cylinder-spin-speed: 24s;
-    --cylinder-font-size: 40px;
-    --cylinder-perspective: 900px;
-    --cylinder-width: 100%;
-    --cylinder-height: 400px;
   }
 }
 
@@ -38,68 +32,111 @@
   * {
     @apply border-border;
   }
-  body {
-    @apply bg-background text-foreground font-body;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
   html {
     scroll-behavior: auto;
+  }
+  body {
+    @apply bg-void text-warm font-body antialiased;
+  }
+  ::selection {
+    background: rgba(108, 143, 230, 0.35);
+    color: #e9ddd1;
   }
 }
 
 @layer components {
-  .cylinder-wrapper {
-    position: relative;
-    width: var(--cylinder-width);
-    height: var(--cylinder-height);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    perspective: var(--cylinder-perspective);
-    overflow: hidden;
-    background: transparent;
+  .container-site {
+    @apply mx-auto w-full max-w-6xl px-6 md:px-10;
   }
 
-  .cylinder-stage {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transform-origin: center center;
+  .eyebrow {
+    @apply font-body text-xs font-medium uppercase tracking-[0.18em] text-smoke;
   }
 
-  .cylinder-auto-spin {
-    animation: CylinderSpin var(--cylinder-spin-speed) linear infinite;
+  .h-display {
+    @apply font-display font-normal leading-[1.08] tracking-[-0.02em] text-warm;
   }
 
-  .cylinder-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: var(--cylinder-font-size);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    white-space: nowrap;
-    color: #C2185B;
-    backface-visibility: visible;
-    will-change: transform;
+  .btn {
+    @apply inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full px-7 py-3 font-body text-[15px] font-medium tracking-[0.02em] transition-all duration-300;
   }
 
-  .cylinder-text span {
-    display: inline-block;
-    transform: scaleX(-1);
+  .btn-primary {
+    @apply btn bg-electric text-void hover:shadow-glow hover:brightness-110;
+  }
+
+  .btn-outline {
+    @apply btn border border-warm/25 text-warm hover:border-electric/60 hover:text-white;
+  }
+
+  .btn-ghost {
+    @apply btn text-smoke hover:text-warm;
+  }
+
+  /* Reveal on scroll — управляется хуком useReveal */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+
+  [data-reveal].revealed {
+    opacity: 1;
+    transform: none;
   }
 }
 
-@keyframes CylinderSpin {
-  from {
-    transform: rotateX(0deg);
+/* Тонкая сакральная геометрия: орбиты вращаются едва заметно */
+.orbital-ring {
+  transform-origin: center;
+  animation: orbit-spin 60s linear infinite;
+}
+.orbital-ring--reverse {
+  animation: orbit-spin 90s linear infinite reverse;
+}
+@keyframes orbit-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Дыхание светового пятна */
+.hero-glow {
+  animation: glow-breathe 12s ease-in-out infinite;
+}
+@keyframes glow-breathe {
+  0%, 100% { transform: scale(1); opacity: 0.75; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+
+/* Line-draw для таймлайна */
+.timeline-line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.4s ease-out 0.2s;
+}
+.revealed .timeline-line {
+  stroke-dashoffset: 0;
+}
+
+/* Уважаем системную настройку reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
-  to {
-    transform: rotateX(-360deg);
+  .orbital-ring,
+  .orbital-ring--reverse,
+  .hero-glow {
+    animation: none;
+  }
+  .timeline-line {
+    stroke-dashoffset: 0;
+    transition: none;
+  }
+  * {
+    scroll-behavior: auto !important;
   }
 }
