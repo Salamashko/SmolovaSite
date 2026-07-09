@@ -1,73 +1,35 @@
-# React + TypeScript + Vite
+# Сайт Ирины Смоловой
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Премиальный лендинг личного бренда энерготерапевта и проводника в концепции
+**«Тёмная сакральная ясность»**: кинематографичная тёмная база, световые частицы,
+тонкая орбитальная геометрия и светлая вторичная тема для продуктов.
 
-Currently, two official plugins are available:
+## Команды
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev       # Дев-сервер (Vite, http://127.0.0.1:3000)
+npm run build     # Проверка типов + продакшен-сборка
+npm run lint      # ESLint
+npm run preview   # Локальный просмотр продакшен-сборки
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Структура страницы
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Hero → Навигатор (4 маршрута) → С чем помогает → Как проходит →
+Продукты + прайс + расписание → Женский круг → Отзывы → Эксперт → FAQ →
+Финальный CTA. Плюс фиксированная шапка и sticky-CTA после первого скролла.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Ключевые файлы
+
+- `src/lib/content.ts` — весь контент сайта (тексты, цены, ссылки) в одном месте
+- `src/sections/` — секции страницы; `ParticleField` и `OrbitalRings` — декоративные слои
+- `src/hooks/useReveal.ts` — reveal-анимации при скролле (IntersectionObserver)
+- `src/hooks/useMagnetic.ts` — «магнитная» CTA-кнопка (только hover-устройства)
+- `tailwind.config.js` + `src/index.css` — палитра и дизайн-токены
+
+## Принципы (из ТЗ)
+
+- Первый слой — состояние человека, метод — второй
+- Без обещаний «исцелю», «гарантирую», без давления и фейкового дефицита
+- `prefers-reduced-motion` уважается: все анимации отключаемы
+- Мобильная версия — основной сценарий, не адаптация

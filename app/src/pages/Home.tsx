@@ -1,37 +1,40 @@
-﻿import RadianceField from '../sections/RadianceField';
+import Header from '../sections/Header';
 import Hero from '../sections/Hero';
-import Invitation from '../sections/Invitation';
-import Transformation from '../sections/Transformation';
-import Services from '../sections/Services';
+import Navigator from '../sections/Navigator';
+import Pains from '../sections/Pains';
+import Process from '../sections/Process';
+import Products from '../sections/Products';
+import WomenCircle from '../sections/WomenCircle';
 import Testimonials from '../sections/Testimonials';
+import Expert from '../sections/Expert';
+import FAQ from '../sections/FAQ';
+import FinalCTA from '../sections/FinalCTA';
 import Footer from '../sections/Footer';
+import StickyCTA from '../sections/StickyCTA';
 import { useLenis } from '../hooks/useLenis';
+import { useReveal } from '../hooks/useReveal';
 
 export default function Home() {
   useLenis();
+  useReveal();
 
   return (
     <>
-      <RadianceField />
-      <div style={{ position: 'relative', zIndex: 1 }}>
+      <Header />
+      <main>
         <Hero />
-        {/* Transition overlay from hero to content */}
-        <div
-          style={{
-            height: '200px',
-            background: 'linear-gradient(180deg, transparent 0%, #C2185B 100%)',
-            position: 'relative',
-            zIndex: 5,
-            marginTop: '-200px',
-            pointerEvents: 'none',
-          }}
-        />
-        <Invitation />
-        <Transformation />
-        <Services />
+        <Navigator />
+        <Pains />
+        <Process />
+        <Products />
+        <WomenCircle />
         <Testimonials />
-        <Footer />
-      </div>
+        <Expert />
+        <FAQ />
+        <FinalCTA />
+      </main>
+      <Footer />
+      <StickyCTA />
     </>
   );
 }
