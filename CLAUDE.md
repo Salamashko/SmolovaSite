@@ -134,7 +134,7 @@ All animations must respect `prefers-reduced-motion` (see index.css and the hook
 - каждый раз, когда обновляешь `memory-bank/` этого проекта, синхронизируй его в хаб, запиши в журнал проекта,
   что сделали, ошибки и как исправили, и отправь хаб прямо в `main` (`scripts/hub.py sync` → `publish`);
 - без секретов;
-- **команды на сервере и компьютерах выполняй сам** (`HUB_RULES.md`, раздел 8): в облаке подключи `Salamashko/vika-ruchka-mak-bot` (`add_repo`, чтение) и запускай
+- **команды на сервере и компьютерах выполняй сам** (`HUB_RULES.md`, раздел 8): в облаке подключи `Salamashko/salamashkina.ru` (`add_repo`, чтение) и запускай
   `AGENT_TOKEN=proxy-injected python3 ops/agent-worker/agentctl.py workers` / `run --worker server-ops --cmd "deploy ПРОЕКТ"` (обновление проекта на сервере,
   по кнопке владелицы); не гадай адреса и не проси владелицу копировать команды.
 <!-- sega-mega-drive:end -->
@@ -148,8 +148,8 @@ All animations must respect `prefers-reduced-motion` (see index.css and the hook
 
 1. **Всё, что можно выполнить через `agentctl`, выполняй сам** и показывай настоящий вывод: `python3 ops/agent-worker/agentctl.py workers` /
    `run --worker home|office|server|server-ops --cwd ПАПКА --cmd "КОМАНДА" --wait 180` / `status ID`. Если в этом репозитории нет
-   `ops/agent-worker/agentctl.py`, вызови `add_repo` (owner `Salamashko`, repo `vika-ruchka-mak-bot`, чтение) и запускай
-   `/home/user/vika-ruchka-mak-bot/ops/agent-worker/agentctl.py`. В облаке токен — сетевой секрет окружения: передавай заглушку
+   `ops/agent-worker/agentctl.py`, вызови `add_repo` (owner `Salamashko`, repo `salamashkina.ru`, чтение) и запускай
+   `/home/user/salamashkina.ru/ops/agent-worker/agentctl.py` (с 02.11.2026 очередь агентов — в репозитории `salamashkina.ru`). В облаке токен — сетевой секрет окружения: передавай заглушку
    `AGENT_TOKEN=proxy-injected`; на ПК — переменная Windows `AGENT_TOKEN`.
 2. **Изменения на сервере — узел `server-ops`** (белый список, меняющее — по кнопке владелицы в Telegram, до её нажатия код выхода 3 — это штатно,
    а не «нет доступа»): `git-pull ПРОЕКТ`, `migrate ПРОЕКТ`, `deploy ПРОЕКТ`, `restart СЛУЖБА`, `nginx-reload`; чтение без кнопки: `git-check ПРОЕКТ`,
